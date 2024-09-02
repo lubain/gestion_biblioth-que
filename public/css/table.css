@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: #ddd;
+}
+.scroll{
+    overflow-x: scroll;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+.supprimer {
+    border: none;
+    height: 100%;
+    background-color: #f75625;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.tr{
+    border-bottom: 1px solid #c4b8b8;
+}
+
+.tr:nth-child(even){background-color: #f2f2f2}
