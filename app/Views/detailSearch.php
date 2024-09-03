@@ -17,6 +17,7 @@
     </div>
     <h4 style="color: #192a56;">Titre : <?= $livre["titre"] ?></h4>
     <h4 style="color: #192a56;">Autheur : <?= $livre["autheur"] ?></h4>
+    <h4 style="color: #192a56;">Description : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci rerum similique, provident qui hic corrupti quis voluptatibus ab. Deserunt exercitationem et sed tempora neque officiis debitis nemo sequi aliquid reprehenderit.</h4>
     <form action="" method="post" class="m-3">
         <?php if($livre["isDispo"] == 1):?>
             <input type="submit" class="btn btn-primary" value="Emprunter">
@@ -25,7 +26,6 @@
             <h3>le livre sera disponible a partir de <?= $livre["dateDePret"] ?></h3>
         <?php endif;?>
     </form>
-    <?php require 'contact.php'?>
     <?php require 'footer.php'?>
 </body>
 </html>

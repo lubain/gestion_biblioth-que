@@ -12,7 +12,7 @@ class Login extends BaseController
     public function login()
     {
         if (session()->get('id')) {
-            $url = base_url("public/admin");
+            $url = base_url("public/");
             return redirect()->to($url);
         }
         $data["error"] = "";
@@ -30,7 +30,7 @@ class Login extends BaseController
         if (count($admin) > 0) {
             $id = $admin[0]['id'];
             session()->set('id', $id);
-            $url = base_url("public/admin");
+            $url = base_url("public/");
             return redirect()->to($url);
         }
         $error = "";

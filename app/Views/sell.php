@@ -13,7 +13,6 @@
 <body>
     <?php include "header.php"; ?>
     <img src="img/logo1.png" alt="" height="50%">
-    <?php include "contact.php"; ?>
     <?php include "footer.php"; ?>
 </body>
 </html>

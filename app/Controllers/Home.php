@@ -7,8 +7,12 @@ use App\Models\LivreModel;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
+        if (!session()->get('id')) {
+            $url = base_url("public/login");
+            return redirect()->to($url);
+        }
         $model = new UserModel();
         $data['user'] = $model->findAll();
         return view('home',$data);
@@ -31,8 +35,12 @@ class Home extends BaseController
         $data['livre'] = $model->find($id);
         return view('detailSearch',$data);
     }
-    public function sell(): string
+    public function sell()
     {
+        if (!session()->get('id')) {
+            $url = base_url("public/login");
+            return redirect()->to($url);
+        }
         return view('sell');
     }
     public function detailSell(): string

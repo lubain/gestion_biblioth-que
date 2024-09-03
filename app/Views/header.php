@@ -34,13 +34,13 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="<?= base_url("public/search"); ?>">trouver des livres<br></a></li>
+                <li><a href="<?= base_url("public/livreList"); ?>">Gestion Des Livres</a></li>
                 <li><a href="<?= base_url("public/sell"); ?>">A propos</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi fas fa-bars"></i>
         </nav>
 
-        <a class="btn-getstarted fas fa-sign-out-alt" href="#"></a>
+        <a class="btn-getstarted fas fa-sign-out-alt" href="logout"></a>
 
     </div>
-</header>
+</header> 

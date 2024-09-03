@@ -12,7 +12,6 @@
 <body>
     <?php require 'header.php'?>
     <h1>Ato ai</h1>
-    <?php require 'contact.php'?>
     <?php require 'footer.php'?>
 </body>
 </html>

@@ -14,7 +14,6 @@
 <body>
     <?php include "header.php"; ?>
     <img src="img/logo1.png" alt="" height="50%">
-    <?php include "contact.php"; ?>
     <?php include "footer.php"; ?>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

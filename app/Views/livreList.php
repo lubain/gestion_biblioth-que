@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include "headerAdmin.php"; ?>
+    <?php include "header.php"; ?>
     <div class="container mt-2">
         <form class="d-flex m-3" role="search" method="post">
             <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -59,6 +59,6 @@
             </tbody>
         </table>
     </div>
-    <script src="js/app.js"></script>
+    <?php include "footer.php"; ?>
 </body>
 </html>
