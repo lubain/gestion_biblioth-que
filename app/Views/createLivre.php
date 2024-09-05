@@ -26,9 +26,8 @@
                     <div class="col-md-6 position-relative">
                         <label for="categorie" class="form-label">Categorie</label>
                         <select name="categorie" class="form-select" aria-label="Default select example" id="categorie" required>
-                            <option value="enfant" selected>Enfant</option>
-                            <option value="ados">Ados</option>
-                            <option value="adulte">Adulte</option>
+                            <option value="informatique" selected>Informatique</option>
+                            <option value="tertiere">Tertiere</option>
                         </select>
                     </div>
                     <div class="col-md-6 position-relative">
@@ -38,10 +37,11 @@
                             <option value="sport">Sport</option>
                             <option value="cuisine">Cuisine</option>
                             <option value="bandeDessinee">Bande dessinee</option>
+                            <option value="document">Document</option>
                         </select>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-success" type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                        <button class="btn btn-success" type="submit"><i class="fas fa-paper-plane"></i> Creer</button>
                     </div>
                 </form>
             </div>

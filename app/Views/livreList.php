@@ -34,22 +34,7 @@
                 </div>
 
             </div>
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <select class="form-select shadow" name="filliere" aria-label="Default select example">
-                        <option value="" disabled selected>Filliere</option>
-                        <option value="IGGLIA">IGGLIA</option>
-                        <option value="ISSAIA">ISSAIA</option>
-                        <option value="ESSIA">ESSIA</option>
-                        <option value="IMTICIA">IMTICIA</option>
-                        <option value="BIO">BIO</option>
-                        <option value="EMI">EMI</option>
-                        <option value="GCA">GCA</option>
-                        <option value="TOUR">TOUR</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
+            <div class="col-6 mb-4">
                 <div class="dropdown mb-3">
                     <div class="d-flex">
                         <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -83,7 +68,7 @@
             </thead>
             <tbody>
                 <?php foreach($livre as $row):?>
-                    <tr class="tr">
+                    <tr>
                         <td><?= $row['id'] ?></td>
                         <td><?= $row['titre'] ?></td>
                         <td><?= $row['auteur'] ?></td>

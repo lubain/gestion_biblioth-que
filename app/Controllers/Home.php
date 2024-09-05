@@ -241,7 +241,7 @@ class Home extends BaseController
             'isDispo'=>0
         ];
         $model->update($id, $data);
-        $url = base_url("public/search");
+        $url = base_url("public/search/detailSearch/$id");
         return redirect()->to($url);
     }
     public function livreUpdate($id)

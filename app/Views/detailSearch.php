@@ -63,7 +63,6 @@
             timerElement.textContent = currentDate.toLocaleString();
         }
 
-        // Exemple d'utilisation
         const dateDeRetour = document.getElementById('dateDeRetour').textContent;
         const targetDate = new Date(dateDeRetour);
         let timerElement = document.getElementById('timer');

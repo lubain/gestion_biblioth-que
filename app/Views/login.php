@@ -61,25 +61,13 @@
     </style>
 </head>
 <body>
-
-    <!----------------------- Main Container -------------------------->
-
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-
-        <!----------------------- Login Container -------------------------->
-
         <form method="post" class="row border rounded p-3 bg-white shadow box-area">
-
-            <!--------------------------- Left Box ----------------------------->
-
             <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #e3f2fd;">
                 <div class="featured-image mb-3">
                     <img src="img/logo1.png" class="img-fluid" style="width: 250px;">
                 </div>
-            </div> 
-
-            <!-------------------- ------ Right Box ---------------------------->
-                
+            </div>
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
                     <div class="header-text mb-4">
@@ -96,8 +84,8 @@
                     </p>
                     <div class="input-group mb-5 d-flex justify-content-between">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="formCheck">
-                            <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                            <input type="checkbox" class="form-check-input" id="formCheck" name="admin">
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Admin</small></label>
                         </div>
                         <div class="forgot">
                             <small><a href="#">Forgot Password?</a></small>
@@ -114,9 +102,7 @@
                     </div>
                 </div>
             </div> 
-
         </form>
     </div>
-
 </body>
 </html>

@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\LoginAdmin;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
@@ -20,7 +21,13 @@ class Login extends BaseController
     }
     public function check()
     {
-        $model = new LoginAdmin();
+        $modeladmin = new LoginAdmin();
+        $modelmembre = new UserModel();
+        if ($this->request->getPost('admin')) {
+            $model = $modeladmin;
+        } else {
+            $model = $modelmembre;
+        }
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         // $password = password_hash($this->request->getPost('password'),PASSWORD_DEFAULT);

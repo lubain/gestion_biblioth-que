@@ -43,22 +43,7 @@
                 </div>
 
             </div>
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <select class="form-select shadow" name="filliere" aria-label="Default select example">
-                        <option value="" disabled selected>Filliere</option>
-                        <option value="IGGLIA">IGGLIA</option>
-                        <option value="ISSAIA">ISSAIA</option>
-                        <option value="ESSIA">ESSIA</option>
-                        <option value="IMTICIA">IMTICIA</option>
-                        <option value="BIO">BIO</option>
-                        <option value="EMI">EMI</option>
-                        <option value="GCA">GCA</option>
-                        <option value="TOUR">TOUR</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
+            <div class="col-6 mb-4">
                 <div class="dropdown mb-3">
                     <div class="d-flex">
                         <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -84,7 +69,11 @@
                             <a href="<?= base_url("public/search/detailSearch/".$livre['id']); ?>"><img src="<?= $livre["image"] ?>" class="card-img-top zoom-image"></a>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-info">prêter</a>
+                            <?php if($livre["isDispo"] == 1):?>
+                                <a href="#" class="btn btn-info">Emprunter</a>
+                            <?php else:?>
+                                <h5 class="m-2">Delais de pret non expirée </h5>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
