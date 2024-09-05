@@ -5,7 +5,5 @@
     class LoginAdmin extends Model {
         protected $table = 'admin';
         protected $id = 'id';
-        protected $allowedFields = ['email','password'];
+        protected $allowedFields = ['username','email','password'];
     }
-
-?>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\LivreModel;
+use DateTime;
 
 class Home extends BaseController
 {
@@ -21,9 +22,20 @@ class Home extends BaseController
     {
         $model = new LivreModel();
         $livre = $model->findAll();
-        $marque = $this->request->getPost('search');
-        if ($marque) {
-            $livre = $model->like("titre",$marque)->findAll();
+        $search = $this->request->getPost('search');
+        $categorie = $this->request->getPost('categorie');
+        $type = $this->request->getPost('type');
+        $filliere = $this->request->getPost('filliere');
+        if (
+            $search ||
+            $categorie ||
+            $type ||
+            $filliere
+        ) {
+            if ($search) $livre = $model->like("titre",$search)->findAll();
+            else if ($categorie) $livre = $model->like("categorie",$categorie)->findAll();
+            else if ($type) $livre = $model->like("type",$type)->findAll() ;
+            else if ($filliere) $livre = $model->like("fillier",$filliere)->findAll();
         }
         $data['livres'] = $livre;
         $data['nb'] = count($livre);
@@ -152,9 +164,20 @@ class Home extends BaseController
         }
         $model = new LivreModel();
         $livre = $model->findAll();
-        $marque = $this->request->getPost('search');
-        if ($marque) {
-            $livre = $model->like("titre",$marque)->findAll();
+        $search = $this->request->getPost('search');
+        $categorie = $this->request->getPost('categorie');
+        $type = $this->request->getPost('type');
+        $filliere = $this->request->getPost('filliere');
+        if (
+            $search ||
+            $categorie ||
+            $type ||
+            $filliere
+        ) {
+            if ($search) $livre = $model->like("titre",$search)->findAll();
+            else if ($categorie) $livre = $model->like("categorie",$categorie)->findAll();
+            else if ($type) $livre = $model->like("type",$type)->findAll() ;
+            else if ($filliere) $livre = $model->like("fillier",$filliere)->findAll();
         }
         $data['livre'] = $livre;
         $data['nb'] = count($livre);
@@ -196,9 +219,10 @@ class Home extends BaseController
         $img_dir = $this->uploadImage();
         $data = [
             'titre'=>$this->request->getPost('titre'),
-            'autheur'=>$this->request->getPost('autheur'),
-            'dateDePret'=>$this->request->getPost('dateDePret'),
-            'image'=>$img_dir
+            'auteur'=>$this->request->getPost('auteur'),
+            'image'=>$img_dir,
+            'categorie'=>$this->request->getPost('categorie'),
+            'type'=>$this->request->getPost('type')
         ];
         $model->insert($data);
         // $user_id = $model->db->insertID();
@@ -208,13 +232,12 @@ class Home extends BaseController
     }
     public function pret($id)
     {
-        // if (!session()->get('id')) {
-        //     $url = base_url("public/loginUser");
-        //     return redirect()->to($url);
-        // }
         $model = new LivreModel();
+        $datePret = new DateTime();
+        $dateRetour = (clone $datePret)->modify('+10 days');
         $data = [
-            'dateDePret'=>date('Y-m-d H:i:s'),
+            'dateDePret'=>$datePret->format('Y-m-d H:i:s'),
+            'dateDeRetour'=>$dateRetour->format('Y-m-d H:i:s'),
             'isDispo'=>0
         ];
         $model->update($id, $data);
@@ -231,7 +254,9 @@ class Home extends BaseController
         // $img_dir = $this->uploadImage();
         $data = [
             'titre'=>$this->request->getPost('titre'),
-            'autheur'=>$this->request->getPost('autheur'),
+            'auteur'=>$this->request->getPost('auteur'),
+            'categorie'=>$this->request->getPost('categorie'),
+            'type'=>$this->request->getPost('type')
             // 'dateDePret'=>$this->request->getPost('dateDePret')
             // 'image'=>$img_dir
         ];
@@ -287,14 +312,12 @@ class Home extends BaseController
         );
         if (isset($_FILES['image'])){
             $image = $this->reArrayFiles($_FILES['image']);
-            // for ($i=0;$i<count($image);$i++){
             if ($image['error']){
                 echo $image['name'].' - '.$phpFileUploadErrors[$image['error']];
             }else{
                 $extensions = array('jpg','png','gif','jpeg','webp','PNG');
 
                 $file_ext = explode('.',$image['name']);
-                // $name = $file_ext[0];
                 $file_ext = end($file_ext);
 
                 if (!in_array($file_ext,$extensions)){
@@ -305,7 +328,6 @@ class Home extends BaseController
                     return $img_dir;
                 }
             }
-            // }
         }
     }
 

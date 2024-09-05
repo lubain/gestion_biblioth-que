@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-lg-3 col-md-6 d-flex">
-          <i class="fa-regular fa-clock icon"></i>
+          <i class="fas fa-clock icon"></i>
           <div>
             <h4>Opening Hours</h4>
             <p>

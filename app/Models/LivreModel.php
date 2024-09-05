@@ -6,7 +6,8 @@
         protected $table = "livre";
         protected $primaryKey = "id";
         protected $allowedFields = [
-            'titre','autheur',
-            'dateDePret','isDispo','image'
+            'titre','auteur',
+            'image','categorie','type',
+            'dateDePret','dateDeRetour','isDispo'
         ];
     }

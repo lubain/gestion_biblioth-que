@@ -43,15 +43,23 @@ class Login extends BaseController
         $data["error"] = $error;
         return view('login',$data);
     }
+    public function createAdmin(): string
+    {
+        return view('signupAdmin');
+    }
+    
     public function insertAdmin()
     {
         $model = new LoginAdmin();
         $data = [
+            'username'=>$this->request->getPost('username'),
             'email'=>$this->request->getPost('email'),
             'password'=>password_hash($this->request->getPost('password'),PASSWORD_DEFAULT)
         ];
         $model->insert($data);
-        $url = base_url("public/home");
+        $id = $model->getInsertID();
+        session()->set('id', $id);
+        $url = base_url("public/");
         return redirect()->to($url);
     }
     public function logout()

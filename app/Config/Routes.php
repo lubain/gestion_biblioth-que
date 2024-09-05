@@ -26,9 +26,11 @@ $routes->get('update/user/(:num)', 'Home::findUser/$1');
 $routes->get('update/livre/(:num)', 'Home::findLivre/$1');
 $routes->get('delete/user/(:num)', 'Home::deleteUser/$1');
 $routes->get('delete/livre/(:num)', 'Home::deleteLivre/$1');
+$routes->get('createAdmin', 'Login::createAdmin');
 
 $routes->post('search', 'Home::searchLivre');
 $routes->post('createUser', 'Home::createUser');
+$routes->post('createAdmin', 'Login::insertAdmin');
 $routes->post('createLivre', 'Home::createLivre');
 $routes->post('upload', 'Home::uploadFile');
 $routes->post('update/user/(:num)', 'Home::userUpdate/$1');

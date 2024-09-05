@@ -9,85 +9,70 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/fontawesome.css">
     <title>Searh</title>
+    <style>
+        .zoom-image {
+            transition: transform 0.5s ease;
+        }
+
+        .zoom-image:hover {
+            transform: scale(1.1); /* L'image sera agrandie de 20% */
+        }
+    </style>
 </head>
 <body>
     <?php include "header.php"; ?>
-    <div class="container mt-2">
-        <form class="d-flex m-3" role="search" method="post" autocomplete="off">
-            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-info fas fa-search" style="color: #fff;" type="submit"></button>
+    <div class="container mt-3">
+        <form class="row" role="search" method="post" autocomplete="off">
+            <div class="col-3 mb-4">
+                <select class="form-select shadow" name="categorie" aria-label="Default select example">
+                    <option value="" disabled selected>Catégorie</option>
+                    <option value="informatique">Informatique</option>
+                    <option value="tertiere">Tertiere</option>
+                </select>
+            </div>
+            <div class="col-3 mb-4">
+                <div class="dropdown mb-3">
+                    <select class="form-select shadow" name="type" aria-label="Default select example">
+                        <option value="" disabled selected>Type</option>
+                        <option value="romant">Romant</option>
+                        <option value="informatique">Sport</option>
+                        <option value="BandeDessine">Bande dessinée</option>
+                        <option value="cuisine">Cuisine</option>
+                        <option value="document">Document</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-3 mb-4">
+                <div class="dropdown mb-3">
+                    <select class="form-select shadow" name="filliere" aria-label="Default select example">
+                        <option value="" disabled selected>Filliere</option>
+                        <option value="IGGLIA">IGGLIA</option>
+                        <option value="ISSAIA">ISSAIA</option>
+                        <option value="ESSIA">ESSIA</option>
+                        <option value="IMTICIA">IMTICIA</option>
+                        <option value="BIO">BIO</option>
+                        <option value="EMI">EMI</option>
+                        <option value="GCA">GCA</option>
+                        <option value="TOUR">TOUR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3 mb-4">
+                <div class="dropdown mb-3">
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-info fas fa-search" style="color: #fff;" type="submit"></button>
+                    </div>
+                </div>
+            </div>
         </form>
+
         <?php if ($nb > 0): ?>
             <h4 style="color:#192a56;" class="m-3">Resultat : <?= $nb;?></h4>
         <?php else :?>
             <h4 style="color:#192a56;" class="m-3">Aucun resultat...</h4>
         <?php endif ?>
-
-        <div class="row"> 
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Catégorie
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Enfant</a></li>
-                        <li><a class="dropdown-item" href="#">Ados</a></li>
-                        <li><a class="dropdown-item" href="#">Adulte</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                        Date creation
-                    </button>
-                    <form class="dropdown-menu p-4">
-                        <div class="mb-3">
-                            <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-                                <label class="form-check-label" for="dropdownCheck2">
-                                Remember me
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Type
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Romant</a></li>
-                        <li><a class="dropdown-item" href="#">Sport</a></li>
-                        <li><a class="dropdown-item" href="#">Bande dessinée</a></li>
-                        <li><a class="dropdown-item" href="#">Cuisine</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="dropdown mb-3">
-                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Documentaire
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
         <div class="row"> 
             <?php $i = 0; ?>
@@ -96,7 +81,7 @@
                     <div class="card shadow-sm bg-body-tertiary">
                         <div class="card-body" style="height: 17rem;overflow:hidden">
                         <h5><?= $livre["titre"] ?></h5>
-                            <a href="<?= base_url("public/search/detailSearch/".$livre['id']); ?>"><img src="<?= $livre["image"] ?>" class="card-img-top"></a>
+                            <a href="<?= base_url("public/search/detailSearch/".$livre['id']); ?>"><img src="<?= $livre["image"] ?>" class="card-img-top zoom-image"></a>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-info">prêter</a>
